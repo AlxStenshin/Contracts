@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="ru.alxstn.ContractsClient.view.PrimaryController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <HBox id="HBox"
+          spacing="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Button HBox.hgrow="ALWAYS" onAction="#requestContracts" text="Request Contracts"/>
+        <Button HBox.hgrow="ALWAYS" onAction="#addNewContract" text="New Contract"/>
+        <Button HBox.hgrow="ALWAYS" onAction="#addNewOutdatedContract" text="New Outdated Contract"/>
+        <Label fx:id="statusLabel" alignment="BASELINE_CENTER" text="Status: "/>
+    </HBox>
+
+    <VBox fx:id="dataContainer"
+          AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+    </VBox>
+
+</AnchorPane>

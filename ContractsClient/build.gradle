@@ -1,0 +1,42 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+group 'ru.alxstn'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.7'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    //runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    //runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    //runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
+}
+
+application.mainClassName = 'ru.alxstn.ContractsClient.App'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.alxstn.ContractsClient.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
